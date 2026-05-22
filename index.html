@@ -8,7 +8,7 @@
         :root {
             --bg: #ffffff;
             --text: #1a1a1a;
-            --accent: #1e40af; /* Azul profundo y profesional */
+            --accent: #1e40af;
             --muted: #333333;
             --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             --wpp: #25D366;
@@ -76,6 +76,7 @@
         }
         .project-link:hover { border-bottom-color: var(--accent); }
 
+        .tag-list { margin-top: 1rem; }
         .tag { 
             display: inline-block; 
             background: #eff6ff; 
@@ -87,8 +88,11 @@
             margin-right: 0.5rem;
         }
 
-        /* Gráfico de Gantt minimalista */
-        .gantt-chart { margin-top: 2rem; }
+        .visual-label { font-size: 0.75rem; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.5rem; font-weight: 700; }
+        .image-container img { width: 100%; border-radius: 12px; border: 1px solid #e2e8f0; }
+
+        /* Gráfico de Gantt */
+        .gantt-chart { margin-top: 2rem; max-width: 500px; }
         .gantt-row { display: flex; align-items: center; margin-bottom: 1.25rem; gap: 1rem; }
         .gantt-label { width: 150px; font-size: 0.85rem; font-weight: 600; }
         .gantt-bar-bg { flex-grow: 1; background: #f1f5f9; height: 12px; border-radius: 6px; position: relative; }
@@ -101,24 +105,26 @@
 
         .wpp-link { 
             background: var(--wpp); color: white; padding: 0.8rem 2rem; border-radius: 8px; 
-            text-decoration: none; font-weight: 700; display: inline-block; margin-top: 1rem;
+            text-decoration: none; font-weight: 700; display: inline-flex; align-items: center; gap: 0.5rem;
+            margin-top: 1rem; transition: transform 0.2s;
         }
+        .wpp-link:hover { transform: translateY(-2px); }
+
+        footer { padding: 4rem 0; text-align: center; border-top: 1px solid #eee; color: #94a3b8; font-size: 0.9rem; }
 
         @media (max-width: 850px) {
             .project-card { grid-template-columns: 1fr; gap: 2rem; }
-            header { flex-direction: column; text-align: center; }
-            .contacto-layout { flex-direction: column; }
+            header { flex-direction: column; text-align: center; gap: 2rem; }
         }
     </style>
 </head>
 <body>
     <div class="container">
         <header>
-            <!-- Sustituye con tu foto -->
-            <img src="perfil.jpg" alt="Nicole Quispe" class="profile-img">
+            <img src="img/perfil.jpg" alt="Nicole Quispe" class="profile-img">
             <div class="header-content">
                 <h1>Nicole Quispe</h1>
-                <p class="subtitle">Consultora de Estrategia de Datos con más de 3 años de experiencia en el sector bancario y de consultoría tecnológica. He liderado proyectos de análisis de datos para proyectos de Desarrollo Sostenible para Latinoamérica.</p>
+                <p class="subtitle">Impact Data Strategist. Transformando datos complejos en estrategias de impacto social mediante automatización e Inteligencia Artificial.</p>
             </div>
         </header>
 
@@ -128,26 +134,56 @@
             <!-- Proyecto 1 -->
             <div class="project-card">
                 <div class="project-info">
-                    <h3>Impact Data Analytics</h3>
-                    <p>Modelo predictivo de riesgo de exclusión laboral femenina desarrollado para PNUD y ONU Mujeres.</p>
+                    <h3>Impact Data Analytics - PNUD/ONU Mujeres</h3>
+                    <p>Modelo predictivo de riesgo de exclusión laboral femenina en América Latina.</p>
                     <div class="destacables">
                         <ul>
                             <li>Liderazgo de equipo multidisciplinario.</li>
                             <li>Integración de IA para predicción de brechas.</li>
-                            <li>Dashboard interactivo en Power BI.</li>
+                            <li>Visualización estratégica de datos sociales.</li>
                         </ul>
                     </div>
-                    <a href="#" class="project-link">Ver detalles →</a>
+                    <a href="https://dataaccionchallenge.site/" target="_blank" class="project-link">Ver sitio del proyecto →</a>
+                    <div class="tag-list">
+                        <span class="tag">Power BI</span> <span class="tag">IA</span> <span class="tag">Social Impact</span>
+                    </div>
                 </div>
                 <div class="project-visuals">
-                    <img src="proyecto1.png" alt="Visualización Dashboard" style="width:100%; border-radius:8px;">
+                    <div class="visual-label">Dashboard Preview</div>
+                    <div class="image-container">
+                        <img src="img/proyecto1.png" alt="Dashboard UN Women">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Proyecto 2 -->
+            <div class="project-card">
+                <div class="project-info">
+                    <h3>Automatización de Reportes Regionales - Hilti</h3>
+                    <p>Optimización de procesos operativos mediante Power Automate y Power BI.</p>
+                    <div class="destacables">
+                        <ul>
+                            <li>Reducción del 40% en tiempo de reporteo mensual.</li>
+                            <li>Implementación de arquitecturas de datos escalables.</li>
+                            <li>Adopción digital en equipos regionales.</li>
+                        </ul>
+                    </div>
+                    <div class="tag-list">
+                        <span class="tag">Power Automate</span> <span class="tag">Business Intelligence</span>
+                    </div>
+                </div>
+                <div class="project-visuals">
+                    <div class="visual-label">Operational Efficiency</div>
+                    <div class="image-container">
+                        <img src="img/proyecto2.png" alt="Hilti Automation">
+                    </div>
                 </div>
             </div>
         </section>
 
         <section id="contacto">
-            <h2>¿Tienes un reto de datos?</h2>
-            <p>Conversemos sobre cómo transformar tu información en impacto real.</p>
+            <h2>¿Tienes un reto en tu estrategia de datos?</h2>
+            <p>Conversemos sobre cómo potenciar el impacto de tu organización.</p>
             <a href="https://wa.me/51972169858" target="_blank" class="wpp-link">Escribir a WhatsApp</a>
             
             <div class="gantt-chart">
@@ -156,14 +192,14 @@
                     <div class="gantt-bar-bg"><div class="gantt-bar bar-w1"></div></div>
                 </div>
                 <div class="gantt-row">
-                    <div class="gantt-label">Release & MVP</div>
-                    <div class="gantt-bar-bg"><div class="gantt-bar bar-w4"></div></div>
+                    <div class="gantt-label">Dev & Release</div>
+                    <div class="gantt-bar-bg"><div class="gantt-bar bar-w3"></div></div>
                 </div>
             </div>
         </section>
 
         <footer>
-            &copy; 2026 Nicole Quispe · LinkedIn
+            &copy; 2026 Nicole Quispe · <a href="https://www.linkedin.com/in/nicoleqc/" style="color:inherit">LinkedIn</a>
         </footer>
     </div>
 </body>
