@@ -16,6 +16,11 @@
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
 
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
         body {
             font-family: var(--font);
             background-color: var(--bg);
@@ -28,6 +33,11 @@
             max-width: 1000px;
             margin: 0 auto;
             padding: 4rem 2rem;
+        }
+
+        /* Animación suave para las secciones */
+        section, header {
+            animation: fadeInUp 0.8s ease-out forwards;
         }
 
         header {
@@ -43,19 +53,20 @@
             border-radius: 12px;
             object-fit: cover;
             flex-shrink: 0;
+            border: 1px solid #eee;
         }
 
         h1 { font-size: 2.5rem; font-weight: 800; margin-bottom: 0.5rem; color: var(--text); }
         .subtitle { font-size: 1.15rem; color: var(--muted); max-width: 600px; }
 
-        section { margin-bottom: 6rem; }
-        h2 { font-size: 1.75rem; margin-bottom: 3rem; font-weight: 700; border-bottom: 2px solid #f1f5f9; padding-bottom: 0.5rem; }
+        section { margin-bottom: 8rem; }
+        h2 { font-size: 1.75rem; margin-bottom: 4rem; font-weight: 700; border-bottom: 2px solid #f1f5f9; padding-bottom: 0.5rem; }
 
         .project-card {
             display: grid;
             grid-template-columns: 1fr 1.2fr;
             gap: 4rem;
-            margin-bottom: 6rem;
+            margin-bottom: 8rem;
             align-items: start;
         }
 
@@ -71,10 +82,9 @@
             color: var(--accent); 
             text-decoration: none; 
             font-weight: 600; 
-            border-bottom: 2px solid transparent;
-            transition: all 0.2s;
+            margin-bottom: 1rem;
         }
-        .project-link:hover { border-bottom-color: var(--accent); }
+        .project-link:hover { text-decoration: underline; }
 
         .tag-list { margin-top: 1rem; }
         .tag { 
@@ -89,12 +99,16 @@
         }
 
         .visual-label { font-size: 0.75rem; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.5rem; font-weight: 700; }
-        .image-container img { width: 100%; border-radius: 12px; border: 1px solid #e2e8f0; }
+        .image-container img { width: 100%; border-radius: 12px; border: 1px solid #e2e8f0; box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
 
         /* Gráfico de Gantt */
-        .gantt-chart { margin-top: 2rem; max-width: 500px; }
+        .contacto-layout { display: flex; gap: 4rem; align-items: start; }
+        .contacto-text { flex: 1; }
+        .contacto-gantt { flex: 1.2; }
+        
+        .gantt-chart { margin-top: 1rem; }
         .gantt-row { display: flex; align-items: center; margin-bottom: 1.25rem; gap: 1rem; }
-        .gantt-label { width: 150px; font-size: 0.85rem; font-weight: 600; }
+        .gantt-label { width: 180px; font-size: 0.85rem; font-weight: 600; color: var(--text); }
         .gantt-bar-bg { flex-grow: 1; background: #f1f5f9; height: 12px; border-radius: 6px; position: relative; }
         .gantt-bar { height: 100%; border-radius: 6px; background: var(--accent); position: absolute; }
         
@@ -104,17 +118,18 @@
         .bar-w4 { width: 10%; left: 90%; background: #1e40af; }
 
         .wpp-link { 
-            background: var(--wpp); color: white; padding: 0.8rem 2rem; border-radius: 8px; 
-            text-decoration: none; font-weight: 700; display: inline-flex; align-items: center; gap: 0.5rem;
-            margin-top: 1rem; transition: transform 0.2s;
+            background: var(--wpp); color: white; padding: 1rem 2.5rem; border-radius: 8px; 
+            text-decoration: none; font-weight: 700; display: inline-flex; margin-top: 2rem;
+            transition: transform 0.2s;
         }
-        .wpp-link:hover { transform: translateY(-2px); }
+        .wpp-link:hover { transform: translateY(-3px); }
 
-        footer { padding: 4rem 0; text-align: center; border-top: 1px solid #eee; color: #94a3b8; font-size: 0.9rem; }
+        footer { padding: 4rem 0; text-align: center; border-top: 1px solid #eee; color: #94a3b8; }
 
         @media (max-width: 850px) {
-            .project-card { grid-template-columns: 1fr; gap: 2rem; }
-            header { flex-direction: column; text-align: center; gap: 2rem; }
+            .project-card, .contacto-layout { grid-template-columns: 1fr; flex-direction: column; gap: 3rem; }
+            header { flex-direction: column; text-align: center; }
+            .gantt-label { width: 120px; font-size: 0.75rem; }
         }
     </style>
 </head>
@@ -124,7 +139,7 @@
             <img src="img/perfil.jpg" alt="Nicole Quispe" class="profile-img">
             <div class="header-content">
                 <h1>Nicole Quispe</h1>
-                <p class="subtitle">Impact Data Strategist. Transformando datos complejos en estrategias de impacto social mediante automatización e Inteligencia Artificial.</p>
+                <p class="subtitle">Impact Data Strategist. Transformando datos complejos en estrategias de impacto mediante automatización e Inteligencia Artificial.</p>
             </div>
         </header>
 
@@ -140,7 +155,7 @@
                         <ul>
                             <li>Liderazgo de equipo multidisciplinario.</li>
                             <li>Integración de IA para predicción de brechas.</li>
-                            <li>Visualización estratégica de datos sociales.</li>
+                            <li>Desarrollado en entorno de alta presión (2 días).</li>
                         </ul>
                     </div>
                     <a href="https://dataaccionchallenge.site/" target="_blank" class="project-link">Ver sitio del proyecto →</a>
@@ -151,7 +166,7 @@
                 <div class="project-visuals">
                     <div class="visual-label">Dashboard Preview</div>
                     <div class="image-container">
-                        <img src="img/proyecto1.png" alt="Dashboard UN Women">
+                        <img src="img/proyecto1.png" alt="UN Women Project">
                     </div>
                 </div>
             </div>
@@ -159,47 +174,84 @@
             <!-- Proyecto 2 -->
             <div class="project-card">
                 <div class="project-info">
-                    <h3>Automatización de Reportes Regionales - Hilti</h3>
-                    <p>Optimización de procesos operativos mediante Power Automate y Power BI.</p>
+                    <h3>Automatización Regional - Hilti</h3>
+                    <p>Optimización de procesos operativos y reporting mediante Power BI y Power Automate.</p>
                     <div class="destacables">
                         <ul>
                             <li>Reducción del 40% en tiempo de reporteo mensual.</li>
-                            <li>Implementación de arquitecturas de datos escalables.</li>
-                            <li>Adopción digital en equipos regionales.</li>
+                            <li>Arquitectura de datos escalable para región LATAM.</li>
+                            <li>Gestión de presupuestos y logística ejecutiva.</li>
                         </ul>
                     </div>
                     <div class="tag-list">
-                        <span class="tag">Power Automate</span> <span class="tag">Business Intelligence</span>
+                        <span class="tag">Power BI</span> <span class="tag">Power Automate</span> <span class="tag">Operations</span>
                     </div>
                 </div>
                 <div class="project-visuals">
-                    <div class="visual-label">Operational Efficiency</div>
+                    <div class="visual-label">Efficiency Analysis</div>
                     <div class="image-container">
-                        <img src="img/proyecto2.png" alt="Hilti Automation">
+                        <img src="img/proyecto2.png" alt="Hilti Project">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Proyecto 3 -->
+            <div class="project-card">
+                <div class="project-info">
+                    <h3>Control de Material Obsoleto</h3>
+                    <p>Sistema de monitoreo logístico y financiero multimoneda.</p>
+                    <div class="destacables">
+                        <ul>
+                            <li>Gestión en seis tipos de monedas diferentes.</li>
+                            <li>Incluye Dashboard Guide para usuarios finales.</li>
+                            <li>Visualizador integrado de casos de uso (PDF).</li>
+                        </ul>
+                    </div>
+                    <div class="tag-list">
+                        <span class="tag">Logistics</span> <span class="tag">Finance</span> <span class="tag">Dashboard Design</span>
+                    </div>
+                </div>
+                <div class="project-visuals">
+                    <div class="visual-label">Supply Chain Data</div>
+                    <div class="image-container">
+                        <img src="img/proyecto3.png" alt="Logistics Project">
                     </div>
                 </div>
             </div>
         </section>
 
         <section id="contacto">
-            <h2>¿Tienes un reto en tu estrategia de datos?</h2>
-            <p>Conversemos sobre cómo potenciar el impacto de tu organización.</p>
-            <a href="https://wa.me/51972169858" target="_blank" class="wpp-link">Escribir a WhatsApp</a>
-            
-            <div class="gantt-chart">
-                <div class="gantt-row">
-                    <div class="gantt-label">Análisis & Discovery</div>
-                    <div class="gantt-bar-bg"><div class="gantt-bar bar-w1"></div></div>
+            <h2>¿Tienes un reto de datos?</h2>
+            <div class="contacto-layout">
+                <div class="contacto-text">
+                    <p>Conversemos sobre cómo podemos potenciar los resultados de tu organización mediante estrategia de datos.</p>
+                    <a href="https://wa.me/51972169858" target="_blank" class="wpp-link">Escribir a WhatsApp</a>
                 </div>
-                <div class="gantt-row">
-                    <div class="gantt-label">Dev & Release</div>
-                    <div class="gantt-bar-bg"><div class="gantt-bar bar-w3"></div></div>
+                <div class="contacto-gantt">
+                    <div class="gantt-chart">
+                        <div class="gantt-row">
+                            <div class="gantt-label">Análisis & Discovery</div>
+                            <div class="gantt-bar-bg"><div class="gantt-bar bar-w1"></div></div>
+                        </div>
+                        <div class="gantt-row">
+                            <div class="gantt-label">Dev & Planning</div>
+                            <div class="gantt-bar-bg"><div class="gantt-bar bar-w2"></div></div>
+                        </div>
+                        <div class="gantt-row">
+                            <div class="gantt-label">Dashboarding & Testing</div>
+                            <div class="gantt-bar-bg"><div class="gantt-bar bar-w3"></div></div>
+                        </div>
+                        <div class="gantt-row">
+                            <div class="gantt-label">Release & MVP</div>
+                            <div class="gantt-bar-bg"><div class="gantt-bar bar-w4"></div></div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
 
         <footer>
-            &copy; 2026 Nicole Quispe · <a href="https://www.linkedin.com/in/nicoleqc/" style="color:inherit">LinkedIn</a>
+            &copy; 2026 Nicole Quispe · <a href="https://www.linkedin.com/in/nicoleqc/" style="color:inherit; text-decoration:none;">LinkedIn</a>
         </footer>
     </div>
 </body>
